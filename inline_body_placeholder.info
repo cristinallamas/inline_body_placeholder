@@ -1,0 +1,6 @@
+name = Inline Body Placeholders
+description = Adds the ability to add placeholders in the body field per content type.
+package = Advertising
+core = 7.x
+dependencies[] = context
+;dependencies[] = ctools

@@ -1,0 +1,14 @@
+<?php
+/**
+ * Implements hook_install().
+ */
+function inline_body_placeholder_install() {
+  variable_set('inline_body_placeholder_placeholder', '<div class="inline-body-placeholder-wysiwyg"></div>');
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function inline_body_placeholder_uninstall() {
+  variable_del('inline_body_placeholder_placeholder');
+}

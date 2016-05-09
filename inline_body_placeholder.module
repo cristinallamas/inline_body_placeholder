@@ -1,0 +1,41 @@
+<?php
+/**
+ * @file
+ * inline_body_placeholder.module
+ */
+
+define("INLINE_BODY_SELECTOR", '.node-full > .content > .field-name-body');
+define("INLINE_BODY_PLACEHOLDER", '<span class="inline-body-placeholder"></>');
+define("INLINE_BODY_FIRST_POSITION", 2);
+define("INLINE_BODY_MIN_DISTANCE", 3);
+define("INLINE_BODY_PARAGRAPH_LENGTH", 100);
+
+
+/**
+ * Implements hook_context_registry().
+ */
+function inline_body_placeholder_context_registry() {
+  return array(
+    'reactions' => array(
+      'inline_body_placeholder' => array(
+        'title' => t('Inline Body Placeholder'),
+        'plugin' => 'inline_body_placeholder',
+      ),
+    ),
+  );
+}
+
+/**
+ * Implements hook_context_plugins().
+ */
+function inline_body_placeholder_context_plugins() {
+  $plugins['inline_body_placeholder_context_reaction'] = [
+    'handler' => [
+      'path' => drupal_get_path('module', 'inline_body_placeholder') . '/plugins',
+      'file' => 'inline_body_placeholder_context_reaction.inc',
+      'class' => 'InlineBodyPlaceholderContextReaction',
+      'parent' => 'context_condition',
+    ],
+  ];
+  return $plugins;
+}

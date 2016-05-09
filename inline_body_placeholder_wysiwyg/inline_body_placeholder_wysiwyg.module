@@ -1,0 +1,18 @@
+<?php
+/**
+ * @file
+ * inline_body_placeholder.module
+ *
+ * Contains WYSIWYG features to insert ad slots inline into articles.
+ */
+
+
+/**
+ * Implements hook_wysiwyg_include_directory().
+ */
+function inline_body_placeholder_wysiwyg_wysiwyg_include_directory($type) {
+  switch ($type) {
+    case 'plugins':
+      return 'plugins/wysiwyg';
+  }
+}
